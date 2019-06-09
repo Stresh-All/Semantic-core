@@ -23,7 +23,14 @@ public class Demo {
         System.out.println(dictionary.put(entry));*/
         Synonym synonym = SynonymCreator.createSynonym("Synonym.txt", "[\\s,]+");
         //TextFinder textFinder = new TextFinder("text1.txt", "text2.txt", "text3.txt", "text4.txt", "text5.txt", "text6.txt","text7.txt");
-        TextFinder textFinder = new TextFinder("text1.txt", "text2.txt", "text3.txt", "text4.txt", "text5.txt", "text6.txt","text7.txt","text8.txt","text9.txt","text10.txt","text11.txt","text12.txt","text13.txt","text14.txt");
+        String[] textsSet = new String[760];
+        int counter = 0;
+        for (int i = 100; i < 860; i++){
+            textsSet[counter] = "texts/text" + i + ".txt";
+            counter++;
+        }
+        TextFinder textFinder = new TextFinder(textsSet);
+        //TextFinder textFinder = new TextFinder("text1.txt", "text2.txt", "text3.txt", "text4.txt", "text5.txt", "text6.txt","text7.txt","text8.txt","text9.txt","text10.txt","text11.txt","text12.txt","text13.txt","text14.txt");
         //TextFinder textFinder = new TextFinder("text5.txt");
         List<String> texts = textFinder.getTexts();
        // TextCommon textCommon = new TextCommon(texts.get(0));
@@ -33,9 +40,9 @@ public class Demo {
         UnsupervisedSetClassificator unsupervisedSetClassificator = new UnsupervisedSetClassificator(textManager);
         List <Union> unions = unsupervisedSetClassificator.separateOnSet();
         System.out.println(unions);
-        System.out.println(textManager.getTexts());
-        DoublePreparer doublePreparer = new DoublePreparer(textManager, unions);
+        //System.out.println(textManager.getTexts());
+        /*DoublePreparer doublePreparer = new DoublePreparer(textManager, unions);
         doublePreparer.secondStep(textPrepared);
-        System.out.println(textManager.getTexts());
+        System.out.println(textManager.getTexts());*/
     }
 }
