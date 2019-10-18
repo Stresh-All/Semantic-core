@@ -23,6 +23,7 @@ public class TextFinder {
                 texts.add(FileWithTextReader.readWholeFile(name));
             } catch (IOException e) {
                 continue;
+                // The best catching exception ever ;)
             }
         }
         return texts;
